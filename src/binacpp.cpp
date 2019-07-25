@@ -908,17 +908,16 @@ BinaCPP::send_order(
 
 	post_data.append("&type=");
 	post_data.append( type );
-
-	post_data.append("&timeInForce=");
-	post_data.append( timeInForce );
-
-
-
+	if(strcmp(type, "MARKET"))//type != MARKET
+	{
+		post_data.append("&timeInForce=");
+		post_data.append( timeInForce );
+		post_data.append("&price=");
+		post_data.append( to_string( price) );
+	}
 	post_data.append("&quantity=");
 	post_data.append( to_string( quantity) );
-
-	post_data.append("&price=");
-	post_data.append( to_string( price) );
+	
 
 	if ( strlen( newClientOrderId ) > 0 ) {
 		post_data.append("&newClientOrderId=");
