@@ -54,6 +54,7 @@ class BinaCPP {
 
 
 		// Public API
+		static void get_exchangeInfo( Json::Value &json_result);
 		static void get_serverTime( Json::Value &json_result); 	
 
 		static void get_allPrices( Json::Value &json_result );
