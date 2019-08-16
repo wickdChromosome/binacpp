@@ -43,7 +43,36 @@ BinaCPP::cleanup()
 	curl_global_cleanup();
 }
 
+//------------------
+//GET api/v1/exchangeInfo
+//------------------
+void 
+BinaCPP::get_exchangeInfo( Json::Value &json_result)
+{
+	BinaCPP_logger::write_log( "<BinaCPP::get_exchangeInfo>" ) ;
 
+	string url(BINANCE_HOST);  
+	url += "/api/v1/exchangeInfo";
+
+	string str_result;
+	curl_api( url, str_result ) ;
+
+	if ( str_result.size() > 0 ) {
+		
+		try {
+			Json::Reader reader;
+			json_result.clear();	
+			reader.parse( str_result , json_result );
+	    		
+		} catch ( exception &e ) {
+		 	BinaCPP_logger::write_log( "<BinaCPP::get_exchangeInfo> Error ! %s", e.what() ); 
+		}   
+		BinaCPP_logger::write_log( "<BinaCPP::get_exchangeInfo> Done." ) ;
+	
+	} else {
+		BinaCPP_logger::write_log( "<BinaCPP::get_exchangeInfo> Failed to get anything." ) ;
+	}
+}
 //------------------
 //GET /api/v1/time
 //------------
