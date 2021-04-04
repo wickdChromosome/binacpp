@@ -16,7 +16,7 @@
 #include <libwebsockets.h>
 
 
-#define BINANCE_WS_HOST "stream.binance.com"
+#define BINANCE_WS_HOST "stream.binance.us"
 #define BINANCE_WS_PORT 9443
 
 

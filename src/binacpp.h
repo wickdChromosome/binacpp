@@ -28,7 +28,7 @@
 
 
 
-#define BINANCE_HOST "https://api.binance.com"
+#define BINANCE_HOST "https://api.binance.us"
 
 
 using namespace std;
