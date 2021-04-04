@@ -1,5 +1,7 @@
 
-# Binance C++ API
+# Binance US C++ API
+
+US version of binance API -> All urls changed so that the API would work with binance.us
 
 #### Installation
     git clone https://github.com/tensaix2j/binacpp    
